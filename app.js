@@ -24,6 +24,7 @@ app.use(cors({
     origin: [
         "http://localhost:5173",
         "http://localhost:3000",
+        "https://althariocrm.netlify.app"
     ],
     credentials: true
 }));
@@ -56,7 +57,7 @@ const startServer = async () => {
         await connectDB();
         console.log("☑️ Database Connected");
 
-       
+
         app.listen(PORT, () => {
             console.log(`☑️ Server running on port ${PORT}`);
         });
