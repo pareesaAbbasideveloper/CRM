@@ -114,7 +114,8 @@ export const updateLeadInfo = async (req, res) => {
             phone,
             instagram,
             facebook,
-            stage
+            stage,
+            adminId
         } = req.body;
 
         // 1. Find lead
@@ -158,6 +159,20 @@ export const updateLeadInfo = async (req, res) => {
             lead.phone = phone;
         }
 
+        if (adminId && adminId !== String(lead.adminId)) {
+
+            const oldAdmin = lead.adminId;
+
+            lead.adminId = adminId;
+
+            timelineUpdates.push({
+                action: "Lead Assigned",
+                meta: {
+                    from: oldAdmin || null,
+                    to: adminId
+                }
+            });
+        }   
         // 3. Social update
         if (instagram !== undefined || facebook !== undefined) {
             const oldSocial = {
