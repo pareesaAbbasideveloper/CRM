@@ -7,7 +7,7 @@ export const createAccount = async (req, res) => {
     console.log(req.body)
     try {
         const { email, password, role } = req.body;
-        const name = req.body.username
+        const name = req.body.name
         // Check if account already exists
         const existingAccount = await AccountModel.findOne({ email });
         if (existingAccount) {
