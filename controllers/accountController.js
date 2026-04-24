@@ -62,7 +62,7 @@ export const login = async (req, res) => {
         // Create JWT Token
         const token = jwt.sign(
             { id: account._id },
-            "your_fallback_secret",
+            process.env.SECRET_KEY,
             { expiresIn: "1d" }
         );
         console.log("token", token)

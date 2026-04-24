@@ -10,7 +10,8 @@ import accountsRoute from "./routes/acountRoutes.js";
 import stageRoute from "./routes/stageRoutes.js";
 import externalIntegrationRoute from "./routes/externalRoute.js";
 import { retryWebhookJob } from "./jobs/retryWebhookJob..js";
-
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 const PORT = config.port || 5000;

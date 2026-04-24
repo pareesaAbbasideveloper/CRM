@@ -4,7 +4,8 @@ import mongoose from "mongoose";
 import LeadModel from "../models/LeadModel.js";
 import StageModel from "../models/StageModel.js";
 import { triggerWebhook } from "../services/webhookTrigger.js";
-
+import dotenv from "dotenv";
+dotenv.config();
 export const getLeadStageCounts = async (req, res) => {
     try {
         const { adminId } = req.params;
