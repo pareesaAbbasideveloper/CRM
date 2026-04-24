@@ -14,7 +14,6 @@ import {
     bulkUploadLeads
 } from "../controllers/leadController.js";
 import { isVerifiedUser } from "../middlewares/tokenVerification.js";
-import upload from "../middlewares/upload.js";
 
 const router = express.Router();
 
@@ -98,7 +97,6 @@ router.post(
 router.post(
     "/leads/bulk-upload",
     isVerifiedUser(["Admin", "User"]),
-    upload.single("file"),   // ✅ THIS is required
     bulkUploadLeads
 );
 
